@@ -102,5 +102,10 @@
       }
     }
   },
-  "defaultProject": "task-tracker"
+  "defaultProject": "task-tracker",
+  "cli": {
+    "warnings": {
+      "versionMismatch": false
+    }
+  }
 }
