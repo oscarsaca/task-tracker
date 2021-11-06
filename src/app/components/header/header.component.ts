@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-
+import { Subscription } from 'rxjs';
+import { UiServiceService } from '../../services/ui-service.service';
+import { Router } from '@angular/router';
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,8 +10,20 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   title: string = 'Task Tracker';
+  showAddTask!: boolean;
+  subscription!: Subscription;
+
+  constructor(private uiService: UiServiceService, private router: Router) {
+    this.subscription = this.uiService
+      .onToggle()
+      .subscribe((value) => (this.showAddTask = value));
+  }
 
   toggleAddTask() {
-    console.log('Toggle');
+    this.uiService.toggleAddTask();
+  }
+
+  hasRoute(route: string) {
+    return this.router.url === route;
   }
 }
