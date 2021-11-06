@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UiServiceService } from '../../services/ui-service.service';
 import { Router } from '@angular/router';
-import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
